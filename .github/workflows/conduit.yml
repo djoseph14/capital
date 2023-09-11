@@ -17,7 +17,7 @@ jobs:
         image: postgres:11.5-alpine
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: postgres_1234
           POSTGRES_DB: postgres
         ports:
           - 5432:5432
@@ -52,8 +52,8 @@ jobs:
 
       - name: Run newman and test service
         env:
-          SECRET_KEY: secret_key
-          DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
+          SECRET_KEY: my_secretKey
+          DATABASE_URL: postgresql://postgres:postgres_1234@localhost/postgres
         run: |
           poetry run alembic upgrade head
           poetry run uvicorn app.main:app &

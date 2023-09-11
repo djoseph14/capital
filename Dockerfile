@@ -1,4 +1,5 @@
 FROM python:3.9.10-slim
+USER user
 COPY app /capital/app
 COPY requirements.txt /capital
 COPY alembic.ini /capital
